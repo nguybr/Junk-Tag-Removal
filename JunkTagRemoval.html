@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" lang = "en-US">
+
+<head>
+<meta charset="UTF-8">
+<title>Intern Junk Code Cleaning</title>
+<link rel ="stylesheet" type="text/css" href="myStyle.css">
+<script>
+	function cleanCode() {
+		
+		<!-- Get the text version of the html code and what tags to remove -->
+		var sourceCode = document.getElementById("bigString").value;
+
+		<!-- Remove all instances of style= -->
+		while (sourceCode.indexOf(' style=') > -1)
+		{
+			var indexStyle = sourceCode.indexOf(' style=');
+			var indexQuote = 8 + indexStyle + sourceCode.substring(indexStyle+8).indexOf('"');
+			var unwantedString = sourceCode.substring(indexStyle, indexQuote + 1);
+			sourceCode = sourceCode.replace(unwantedString, '');
+		}
+
+		<!-- Remove all instances of class= -->
+		while (sourceCode.indexOf(' class=') > -1)
+		{
+			var indexStyle = sourceCode.indexOf(' class=');
+			var indexQuote = 8 + indexStyle + sourceCode.substring(indexStyle+8).indexOf('"');
+			var unwantedString = sourceCode.substring(indexStyle, indexQuote + 1);
+			sourceCode = sourceCode.replace(unwantedString, '');
+		}
+
+		<!-- Remove all span tags -->
+		while (sourceCode.indexOf('<span') > -1)
+		{
+			var indexStyle = sourceCode.indexOf('<span');
+			var indexQuote = indexStyle + sourceCode.substring(indexStyle).indexOf('>');
+			var unwantedString = sourceCode.substring(indexStyle, indexQuote + 1);
+			sourceCode = sourceCode.replace(unwantedString, '');
+
+			var deletedRegex = new RegExp("</span>", 'g');
+			sourceCode = sourceCode.replace(deletedRegex, '');
+		}
+
+		<!-- Remove all script tags -->
+		while (sourceCode.indexOf('<script') > -1)
+		{
+			var indexStyle = sourceCode.indexOf('<script');
+			var indexQuote = indexStyle + sourceCode.substring(indexStyle).indexOf('>');
+			var unwantedString = sourceCode.substring(indexStyle, indexQuote + 1);
+			sourceCode = sourceCode.replace(unwantedString, '');
+
+			var deletedRegex = new RegExp('</sc', 'g');
+			sourceCode = sourceCode.replace(deletedRegex, '');
+			var deletedRegex = new RegExp('ript>', 'g');
+			sourceCode = sourceCode.replace(deletedRegex, '');
+		}
+
+		<!-- Remove all comments -->
+                while (sourceCode.indexOf('<!--') > -1)
+                {
+                       	var indexComment = sourceCode.indexOf('<!--', '-->');
+                    	var indexEndComment = indexComment + sourceCode.substring(indexComment).indexOf('-->');
+                     	var unwantedString = sourceCode.substring(indexComment, indexEndComment + 3);
+                       	sourceCode = sourceCode.replace(unwantedString, '');
+               	}
+
+
+
+		<!-- Replace all '<' and '>' characters so that they are not rendered by HTML -->
+		sourceCode = sourceCode.replace(/</g, '&lt');
+		sourceCode = sourceCode.replace(/>/g, '&gt');
+		document.getElementById("demo").innerHTML = sourceCode;
+}
+</script>
+
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:IsMyDocuments msdt:dt="string">1</mso:IsMyDocuments>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+
+<div class="grid">
+    <div class="grid-item-hd">
+	<h1> Sample Form that will send inputs to javascript function</h2>
+    </div>
+    <div class="grid-item-in">
+	<div name="input">
+		<h3>Enter text of your HTML code here:</h3>
+		<textarea rows = "10" cols="100" id="bigString">
+		</textarea>
+		<br> <br>
+		<input type="button" onclick="cleanCode()" value="Clean Code">
+        </div>
+    </div>
+    <div class="grid-item-out">
+	<h3><b>Output:</b></h3>
+	<textarea id="demo" rows = "10" cols="100"></textarea>
+    </div>
+    <div class="grid-item-txt">
+	<h3>Preprogrammed Tag List</h3>
+	<p> This is where we will input a description of the program, as well as list the tags that are programmed in</p>
+    </div>
+    <div class="grid-item-ft">
+	<p style="font-size: 10px"> This program has been created by the 2019 Summer Intern Cohort </p>
+    </div>
+</div>
+
+
+
+</html>

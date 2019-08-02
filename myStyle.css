@@ -1,0 +1,93 @@
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+p {
+	font-size: 20px;
+	max-width: 40em;
+}
+
+h1 {
+background-color: #FFFFFF;
+border-radius: 15px 15px 15px 15px;
+text-align: center;
+font-size: 36pt;
+color: #000099;
+margin-bottom: 5px;
+text-decoration: underline;
+    }
+
+h3 {
+background-color: #FFFFFF;
+border-radius: 15px 15px 15px 15px;
+text-align: center;
+font-size: 16pt;
+color: #000099;
+margin-bottom: 5px;
+text-decoration: underline;
+   }
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(3, auto);
+	grid-template-rows: auto 1fr 1fr auto;
+	grid-gap: 10px 10px;
+	grid-template-areas:
+	"hd hd hd"
+	"in in txt"
+	"out out txt"
+	"ft ft ft";
+	background-color: #2196F3;
+	justify-items: center;
+	min-height: 100%;
+}
+
+.grid-item-hd {
+	background-color: rgba(255, 255, 255, 0.8);
+	border: 1px solid rgba(0, 0, 0, 0.8);
+	padding: 20px;
+	font-size: 30px;
+	text-align: center;
+	justify-items: center;
+	grid-area: hd;
+}
+.grid-item-in {
+	background-color: rgba(255, 255, 255, 0.8);
+	border: 1px solid rgba(0, 0, 0, 0.8);
+	padding: 20px;
+	font-size: 30px;
+	text-align: center;
+	justify-items: center;
+	grid-area: in;
+}
+
+.grid-item-out {
+	background-color: rgba(255, 255, 255, 0.8);
+	border: 1px solid rgba(0, 0, 0, 0.8);
+	padding: 20px;
+	font-size: 30px;
+	text-align: center;
+	justify-items: center;
+	grid-area: out;
+}
+
+.grid-item-txt {
+	background-color: rgba(255, 255, 255, 0.8);
+	border: 1px solid rgba(0, 0, 0, 0.8);
+	padding: 20px;
+	font-size: 30px;
+	text-align: center;
+	justify-items: center;
+	grid-area: txt;
+	
+}
+
+.grid-item-ft {
+	padding: 20px;
+	font-size: 30px;
+	text-align: center;
+	justify-items: center;
+	grid-area: ft;
+	
+}
