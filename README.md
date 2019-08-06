@@ -3,7 +3,7 @@ Junk Tag Removal
 
 This is an application that utilizes HTML, Javascript and CSS to remove certain HTML tags that are specific to Sharepoint styling.
 
-![DefaultScreen](DefaultedScreen).jpg
+![DefaultedScreen](DefaultedScreen).jpg
 
 ---
 
