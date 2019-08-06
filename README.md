@@ -9,7 +9,7 @@ This is an application that utilizes HTML, Javascript and CSS to remove certain 
 
 ## Features
 - Input text HTML
-- Removes <span> and <script> tags
+- Removes span, script tags and their end tags
 - Removes style= and class= attributes
 - Removes comments
 - Returns new version of text HTML without the above elements
