@@ -14,6 +14,7 @@ This is an application that utilizes HTML, Javascript and CSS to remove certain 
 - Removes comments
 - Returns new version of text HTML without the above elements
 - Simple interface
+- 'Copy to Clipboard' button
   
   ---
   
@@ -23,4 +24,4 @@ Download the JunkTagRemoval.html and myStyle.css files.  As of right now, the ap
 ---
 
 ## Usage
-Feel free to test out the application with as many different texts as you want!  Paste the text HTML from which you would like to remove junk tags in the top left box.  After clicking the "Clean Code" button, the bottom left box will now contain an updated version of your input without certain tags.
+Feel free to test out the application with as many different texts as you want!  Paste the text HTML from which you would like to remove junk tags in the top left box.  After clicking the "Clean Code" button, the bottom left box will now contain an updated version of your input without certain tags.  To avoid highlighting large areas of text, a 'Copy to Clipboard' button will copy all the text in the Output box.
