@@ -64,6 +64,29 @@
                        	sourceCode = sourceCode.replace(unwantedString, '');
                	}
 
+		<!-- Replace all b tags with strong tags -->
+		while (sourceCode.indexOf('<b') > -1)
+		{
+			var indexStyle = sourceCode.indexOf('<b');
+			var indexQuote = indexStyle + sourceCode.substring(indexStyle).indexOf('>');
+			var unwantedString = sourceCode.substring(indexStyle, indexQuote + 1);
+			sourceCode = sourceCode.replace(unwantedString, '<strong>');
+
+			var deletedRegex = new RegExp('</b>', 'g');
+			sourceCode = sourceCode.replace(deletedRegex, '</strong>');
+		}
+
+		<!-- Replace all i tags with emphasis tags -->
+		while (sourceCode.indexOf('<i') > -1)
+		{
+			var indexStyle = sourceCode.indexOf('<i');
+			var indexQuote = indexStyle + sourceCode.substring(indexStyle).indexOf('>');
+			var unwantedString = sourceCode.substring(indexStyle, indexQuote + 1);
+			sourceCode = sourceCode.replace(unwantedString, '<em>');
+
+			var deletedRegex = new RegExp('</i>', 'g');
+			sourceCode = sourceCode.replace(deletedRegex, '</em>');
+		}
 
 
 		<!-- Replace all '<' and '>' characters so that they are not rendered by HTML -->
@@ -92,14 +115,14 @@
 
 <div class="grid">
     <div class="grid-item-hd">
-	<h1> Sample Form that will send inputs to javascript function</h2>
+	<h1> Junk Tag Removal</h1>
     </div>
     <div class="grid-item-in">
 	<div name="input">
 		<h3>Enter text of your HTML code here:</h3>
 		<textarea rows = "10" cols="100" id="bigString">
 		</textarea>
-		<br> <br>
+		<br>
 		<input type="button" onclick="cleanCode()" value="Clean Code">
         </div>
     </div>
@@ -111,7 +134,19 @@
     </div>
     <div class="grid-item-txt">
 	<h3>Preprogrammed Tag List</h3>
-	<p> This is where we will input a description of the program, as well as list the tags that are programmed in</p>
+	<p> 
+	<ul>
+	This application removes the following HTML elements: <br><br>
+		class= attributes <br>
+		style= attributes <br>
+		&ltspan&gt tags <br>
+		&ltscript&gt tags <br>
+		&lt!-- comments --> <br><br>
+	This application also replaces the following:<br><br>
+		<b>&ltb&gt</b> tags with <strong>&ltstrong&gt</strong> tags <br>
+		<i>&lti&gt</i> tags with <em>&ltemphasis&gt</em> tags
+	</ul>
+	</p>
     </div>
     <div class="grid-item-ft">
 	<p style="font-size: 10px"> This program has been created by the 2019 Summer Intern Cohort </p>
