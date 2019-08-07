@@ -65,9 +65,9 @@
                	}
 
 		<!-- Replace all b tags with strong tags -->
-		while (sourceCode.indexOf('<b') > -1)
+		while (sourceCode.indexOf('<b>') > -1)
 		{
-			var indexStyle = sourceCode.indexOf('<b');
+			var indexStyle = sourceCode.indexOf('<b>');
 			var indexQuote = indexStyle + sourceCode.substring(indexStyle).indexOf('>');
 			var unwantedString = sourceCode.substring(indexStyle, indexQuote + 1);
 			sourceCode = sourceCode.replace(unwantedString, '<strong>');
@@ -77,9 +77,9 @@
 		}
 
 		<!-- Replace all i tags with emphasis tags -->
-		while (sourceCode.indexOf('<i') > -1)
+		while (sourceCode.indexOf('<i>') > -1)
 		{
-			var indexStyle = sourceCode.indexOf('<i');
+			var indexStyle = sourceCode.indexOf('<i>');
 			var indexQuote = indexStyle + sourceCode.substring(indexStyle).indexOf('>');
 			var unwantedString = sourceCode.substring(indexStyle, indexQuote + 1);
 			sourceCode = sourceCode.replace(unwantedString, '<em>');
@@ -136,8 +136,8 @@
 	<p> 
 	<ul>
 	This application removes the following HTML elements: <br><br>
-		class= attributes <br>
-		style= attributes <br>
+		class=" " attributes <br>
+		style=" " attributes <br>
 		&ltspan&gt tags <br>
 		&ltscript&gt tags <br>
 		&lt!-- comments --> <br><br>
