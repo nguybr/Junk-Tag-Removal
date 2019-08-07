@@ -14,6 +14,8 @@ This is an application that utilizes HTML, Javascript and CSS to remove certain 
 - Removes comments
 - Returns new version of text HTML without the above elements
 - Simple interface
+- Replaces b tags with strong tags
+- Replaces i tags with emphasis tags
 - 'Copy to Clipboard' button
   
   ---
