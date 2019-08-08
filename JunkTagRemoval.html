@@ -44,12 +44,14 @@
 
 	<!-- This function cleans a user-inputted attribute -->
 	function cleanAttribute(attributeName, stringToClean) {
-		while (stringToClean.indexOf(attributeName) > -1) {
-			var indexStyle = stringToClean.indexOf(attributeName);
-			var indexQuote = (attributeName.length + 1) + indexStyle + stringToClean.substring(indexStyle + 8).indexOf('"');
-			var unwantedString = stringToClean.substring(indexStyle, indexQuote + 1);
-			return stringToClean.replace(unwantedString, '');
+		var newString = stringToClean;
+		while (newString.indexOf(attributeName) > -1) {
+			var indexStyle = newString.indexOf(attributeName);
+			var indexQuote = (attributeName.length + 1) + indexStyle + newString.substring(indexStyle + 8).indexOf('"');
+			var unwantedString = newString.substring(indexStyle, indexQuote + 1);
+			newString = newString.replace(unwantedString, '');
 		}
+			return newString
 	}
 
 	<!-- This function cleans a user-inputted tag -->
@@ -59,7 +61,7 @@
 			var indexStyle = newString.indexOf(tagName);
 			var indexGreater = indexStyle + newString.substring(indexStyle).indexOf('>');
 			var unwantedString = newString.substring(indexStyle, indexGreater + 1);
-			newString = stringToClean.replace(unwantedString, replacement);
+			newString = newString.replace(unwantedString, replacement);
 
 			var endTag = tagName.charAt(0) + '/' + tagName.substring(1);
 			if (tagName.charAt(tagName.length-1) !== '>') {
@@ -89,18 +91,18 @@
 		return result;
 	}
 
-	<!-- Cleans span tags (FOR THE FUTURE THIS SHOULD BE SCALABLE TO ANY TAGS)-->
-	function cleanSpan(code, listTags, listChecked) {
+	<!-- Removes and replaces tags (FOR THE FUTURE THIS SHOULD BE SCALABLE TO ANY TAGS)-->
+	function executeCleanTags(code, listTags, listChecked) {
 		var result = code;
-			if (listChecked[2]) {
-				result = cleanTag(listTags[2], '', result);
-			}
-			if (listChecked[4]) {
-				result = cleanTag(listTags[4], '<strong>', result);
-			}
-			if (listChecked[5]) {
-				result = cleanTag(listTags[5], '<em>', result);
-			}
+		if (listChecked[2]) {
+			result = cleanTag(listTags[2], '', result);
+		}
+		if (listChecked[4]) {
+			result = cleanTag(listTags[4], '<strong>', result);
+		}
+		if (listChecked[5]) {
+			result = cleanTag(listTags[5], '<em>', result);
+		}
 		return result;
 	}
 
@@ -133,7 +135,7 @@
 		var elementsChecked = getCollection('form', false);
 
 		newCode = attriClean(newCode, elementNames, elementsChecked);
-		newCode = cleanSpan(newCode, elementNames, elementsChecked);
+		newCode = executeCleanTags(newCode, elementNames, elementsChecked);
 		newCode = cleanScript(newCode, elementsChecked);
 		
 		<!-- Return cleaned code -->
@@ -206,3 +208,5 @@
 
 
 </html>
+
+<!-- <script>adffa</script><span><h2 class="dog" style="dog"><b><i>code is clean!</i></b></h2></span> -->
