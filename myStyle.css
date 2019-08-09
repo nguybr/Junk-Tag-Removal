@@ -1,8 +1,10 @@
 html,
 body {
-    	height: 100%;
-    	left: 0;
-	right:0;
+    position: absolute;
+    margin: 0px;
+    top: 0px;
+    bottom: 0px;
+    width: 100%;
 }
 
 p {
@@ -32,8 +34,9 @@ h3 {
     text-decoration: underline;
 }
 
+/*   BUTTON FORMATTING */
 .button {
-	background-color: #362732; /* Green */
+	background-color: #362732;
   	border: 2px solid #362732;
   	color: white;
   	padding: 15px 32px;
@@ -47,16 +50,18 @@ h3 {
 }
 
 .button:hover {
-	background-color: white;
+	background-color: #eadedb;
   	color: black;
 }
+
+/*  END BUTTON FORMATTING   */
 
 .grid {
     display: grid;
     grid-template-columns: repeat(3, auto);
     grid-template-rows: auto 1fr 1fr auto;
-    grid-gap: 10px 10px;
-    grid-template-areas: "hd hd hd" "in in txt" "out out txt" "ft ft ft";
+    grid-gap: 10px 0%;
+    grid-template-areas: "hd hd hd" "in txt txt" "out txt txt" "ft ft ft";
     background-color: #d9c4bf;
     justify-items: center;
     min-height: 100%;
@@ -120,4 +125,40 @@ h3 {
     text-align: center;
     justify-items: center;
     grid-area: ft;
+}
+
+
+/*    CHECKMARK   */
+.checkmark {
+    display:inline-block;
+    width: 23px;
+    height:23px;
+    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+    transform: rotate(45deg);
+}
+
+.checkmark_stem {
+    position: absolute;
+    width:3px;
+    height:18px;
+    background-color:#5F4857;
+    left:11px;
+    top:6px;
+}
+
+.checkmark_kick {
+    position: absolute;
+    width:9px;
+    height:3px;
+    background-color:#5F4857;
+    left:5px;
+    top:24px;
+}
+
+/*   END CHECKMARK   */
+
+.image {
+	position: relative;
+	left: 0;
+	top: 28px;
 }
