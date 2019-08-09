@@ -16,6 +16,7 @@ This is an application that utilizes HTML, Javascript and CSS to remove certain 
 - Simple interface
 - Replaces b tags with strong tags
 - Replaces i tags with emphasis tags
+- Button to check all HTML elements to remove
 - 'Copy to Clipboard' button
   
   ---
