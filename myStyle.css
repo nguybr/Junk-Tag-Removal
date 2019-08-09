@@ -1,6 +1,7 @@
 html, body {
-	width: 100%;
-	height: 100%;
+	height:100%;
+	left:0;
+	right:0;
 }
 
 p {
@@ -13,7 +14,8 @@ background-color: #FFFFFF;
 border-radius: 15px 15px 15px 15px;
 text-align: center;
 font-size: 36pt;
-color: #000099;
+font-family: "Courier New", Courier, monospace;
+color: #000000;
 margin-bottom: 5px;
 text-decoration: underline;
     }
@@ -23,7 +25,8 @@ background-color: #FFFFFF;
 border-radius: 15px 15px 15px 15px;
 text-align: center;
 font-size: 16pt;
-color: #000099;
+font-family: "Courier New", Courier, monospace;
+color: #000000;
 margin-bottom: 5px;
 text-decoration: underline;
    }
@@ -38,7 +41,7 @@ text-decoration: underline;
 	"in in txt"
 	"out out txt"
 	"ft ft ft";
-	background-color: #2196F3;
+	background-color: #eadedb;
 	justify-items: center;
 	min-height: 100%;
 }
@@ -46,8 +49,9 @@ text-decoration: underline;
 .grid-item-hd {
 	background-color: rgba(255, 255, 255, 0.8);
 	border: 1px solid rgba(0, 0, 0, 0.8);
-	padding: 20px;
+	padding: 10px;
 	font-size: 30px;
+	font-family: "Courier New", Courier, monospace;
 	text-align: center;
 	justify-items: center;
 	grid-area: hd;
@@ -57,6 +61,7 @@ text-decoration: underline;
 	border: 1px solid rgba(0, 0, 0, 0.8);
 	padding: 20px;
 	font-size: 30px;
+	font-family: "Courier New", Courier, monospace;
 	text-align: center;
 	justify-items: center;
 	grid-area: in;
@@ -67,6 +72,7 @@ text-decoration: underline;
 	border: 1px solid rgba(0, 0, 0, 0.8);
 	padding: 20px;
 	font-size: 30px;
+	font-family: "Courier New", Courier, monospace;
 	text-align: center;
 	justify-items: center;
 	grid-area: out;
@@ -75,8 +81,9 @@ text-decoration: underline;
 .grid-item-txt {
 	background-color: rgba(255, 255, 255, 0.8);
 	border: 1px solid rgba(0, 0, 0, 0.8);
-	padding: 20px;
-	font-size: 30px;
+	padding: 10px;
+	font-size: 25px;
+	font-family: "Courier New", Courier, monospace;
 	text-align: center;
 	justify-items: center;
 	grid-area: txt;
