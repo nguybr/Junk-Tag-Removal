@@ -106,7 +106,17 @@
 		return result;
 	}
 
-
+	<!-- Removes all comments -->
+	function cleanComments(code) {
+		var newString = code;
+		while (newString.indexOf('<!--') > -1) {
+			var indexStyle = newString.indexOf('<!--');
+			var indexGreater = indexStyle + newString.substring(indexStyle).indexOf('-->');
+			var unwantedString = newString.substring(indexStyle, indexGreater + 3);
+			newString = newString.replace(unwantedString, '');
+		}
+		return newString;
+	}
 
 	<!-- Cleans script tags -->
 	function cleanScript(sourceCode, listChecked) {
@@ -137,6 +147,7 @@
 		newCode = attriClean(newCode, elementNames, elementsChecked);
 		newCode = executeCleanTags(newCode, elementNames, elementsChecked);
 		newCode = cleanScript(newCode, elementsChecked);
+		newCode = cleanComments(newCode);
 		
 		<!-- Return cleaned code -->
 		document.getElementById("demo").innerHTML = newCode;
