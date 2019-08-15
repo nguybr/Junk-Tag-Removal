@@ -1,0 +1,28 @@
+{
+  "version": "2.0.0",
+  "measurementType": {},
+  "agency": "",
+  "releases": {    
+    "name": "Junk Code Removal",
+    "description": "An application to aid in the Treasury.gov migration project",
+    "repositoryURL": "https://github.com/nguybr/Junk-Tag-Removal",
+    "permissions": {
+      "licenses": null,
+      "usageType": "openSource"
+    },
+    "laborHours": 25,
+    "tags": [
+      "Junk Tag Removal",
+      "Junk Code Removal",
+      "Digital Services",
+      "Treasury.gov",
+      "Migration",
+      "Content",
+      "JavaScript",
+      "HTML"
+    ],
+    "contact": {
+      "email": "andrea.miller@treasury.gov"
+    }
+  }
+}
