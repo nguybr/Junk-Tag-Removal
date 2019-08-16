@@ -1,14 +1,24 @@
-	<!-- Returns a collection -->
+	/*
+	Returns a list of either the list of HTML junk code elements or booleans
+	indicated whether a checkbox is checked.  In either case, the returned list
+	contains information from the same order of form inputs.
+
+	@param formId The id of the form from which to obtain all elements.
+	@param cond If true, return a list of elements to remove.  Otherwise,
+		     return booleans indicated checkbox status.
+		
+	@return A list containing 
+	*/
 	function getCollection(formId, cond) {
 		var formElements = document.getElementById('form').elements;
 		var formParts = [];
-		if (cond) { 			<!-- If true, means to get element names -->
+		if (cond) { 			// If true, means to get element names
 			var i;
 			for (i = 0; i < formElements.length; i++) {
 			formParts[i] = formElements[i].value;
 			}
 		}
-		else {				<!-- If false, means to get whether each element is checked or not. -->
+		else {				// If false, means to get whether each element is checked or not
 			var i;
 			for (i = 0; i < formElements.length; i++) {
 			formParts[i] = formElements[i].checked;
@@ -17,6 +27,9 @@
 		return formParts;
 	}
 
+	/* 
+	Selects all checkboxes.
+	*/
 	<!-- Checks all boxes -->
 	function checkMark() {
 		var elements = document.getElementById('form').elements;
@@ -32,7 +45,14 @@
 	}
 
 
-	<!-- This function cleans a user-inputted attribute -->
+	/*
+	Searches for all instances of a user-inputted attribute and removes them.
+
+	@param attributeName The name of the attribute to be removed.
+	@param stringToClean The source that should be searched for instances of attributeName.
+
+	@return A version of stringToClean without any instances of attributeName.
+	*/
 	function cleanAttribute(attributeName, stringToClean) {
 		var newString = stringToClean;
 		while (newString.indexOf(attributeName) > -1) {
@@ -44,7 +64,15 @@
 			return newString;
 	}
 
-	<!-- This function cleans a user-inputted tag -->
+	/*
+	Searches for all instances of a user-inputted tag and removes them.
+
+	@param tagName The name of the tag to be removed.
+	@param replacement What to replace tagName with.
+	@param stringToClean The source that should be searched for instances of tagName.
+
+	@return A version of stringToClean without any instances of tagName.
+	*/
 	function cleanTag(tagName, replacement, stringToClean) {
 		var newString = stringToClean;
 		while (newString.indexOf(tagName) > -1) {
@@ -69,7 +97,16 @@
 		
 	}
 
-	<!-- Cleans selected attributes -->
+	/*
+	Iterates through all objects in listTags and determines whether to clean that tag from the source code.  The two lists
+	are ordered in the same sequence.  If the current boolean being checked is true, then the current tag will be removed from the code.
+
+	@param code The source code to be searched through.
+	@param listTags The list of tags that are decided to be removed.
+	@param listChecked The list of booleans identifying whether a tag should be removed.
+
+	@return A cleaned version of code without certain desired attributes.
+	*/
 	function attriClean(code, listTags, listChecked) {
 		var result = code;
 		var i;
@@ -81,7 +118,16 @@
 		return result;
 	}
 
-	<!-- Removes and replaces tags (FOR THE FUTURE THIS SHOULD BE SCALABLE TO ANY TAGS)-->
+	/*
+	Decides whether to remove the span tag/ replace 'b' and 'i' tags using cleanTag().  It is different from
+	attriClean() because it iterates through the items in listTags that are span, 'b', and 'i'.
+
+	@param code The source code to be searched through.
+	@param listTags The list of tags that are decided to be removed.
+	@param listChecked The list of booleans identifying whether a tag should be removed.
+
+	@return A cleaned version of code without certain desired tags.
+	*/
 	function executeCleanTags(code, listTags, listChecked) {
 		var result = code;
 		if (listChecked[2]) {
@@ -96,7 +142,13 @@
 		return result;
 	}
 
-	<!-- Removes all comments -->
+	/*
+	Removes all comments.
+	
+	@param code The source code to be searched through.
+
+	@return A cleaned version of code without comments.
+	*/
 	function cleanComments(code) {
 		var newString = code;
 		while (newString.indexOf('<!--') > -1) {
@@ -108,7 +160,14 @@
 		return newString;
 	}
 
-	<!-- Cleans script tags -->
+	/*
+	Removes everything between two script tags, including the tags themselves.
+
+	@param sourceCode The source code to be searched through.
+	@param listChecked The list of booleans identifying whether a tag should be removed.
+
+	@return A cleaned version of sourceCode without script tags if desired.
+	*/
 	function cleanScript(sourceCode, listChecked) {
 		var newCode = sourceCode;
 		if (listChecked[3]) {
@@ -123,13 +182,16 @@
 		return newCode;
 	}
 	
-	<!-- On click, this runs all the cleaning -->
+	/*
+	Runs all cleaning.  Takes in whatever is in the "bigString" textarea, removes certain elements as 
+	designated by the checkbox form, then outputs it into the "demo" textarea.
+	*/
 	function clean() {
-		<!-- Get all text inside the input textbox -->
+		// Get all text inside the input textbox
 		var sourceCode = document.getElementById("bigString").value;
 		var newCode = sourceCode;
 		
-		<!-- Get a list of element names and whether they should be removed -->
+		// Get a list of element names and whether they should be removed
 		var elementNames = getCollection('form', true);
 		var elementsChecked = getCollection('form', false);
 
@@ -138,10 +200,13 @@
 		newCode = cleanScript(newCode, elementsChecked);
 		newCode = cleanComments(newCode);
 		
-		<!-- Return cleaned code -->
+		// Return cleaned code
 		document.getElementById("demo").innerHTML = newCode;
 	}
 
+	/*
+	Copies all the text inside the "demo" textarea.  Alerts the user when copied successfully.
+	*/
 	function copyText() {
 		var copiedText = document.getElementById("demo");
 		copiedText.select();
