@@ -16,7 +16,7 @@
 
 <div class="grid">
     <div class="grid-item-hd">
-	<h1> Junk Code Removal</h1>
+	<h1><label for="bigString">Junk Code Removal</label></h1>
     </div>
     <div class="grid-item-in">
 	<div name="input">
@@ -26,26 +26,45 @@
         </div>
     </div>
     <div class="grid-item-out">
-	<h3>Output:</h3>
+	<h3><label for="demo">Output:</label></h3>
 	<textarea id="demo" rows = "10" cols="100"></textarea>
 	<br>
 	<button class="button" onclick="copyText()">Copy to Clipboard</button>
     </div>
     <div class="grid-item-txt">
-	<h3>Preprogrammed Tag List</h3>
+	<label for="form"><h3>Preprogrammed Tag List</h3></label>
 	<p> 
 	<form id='form'>
-	Which HTML elements should be removed: <br><br>
-		<strong><u> Attributes </u></strong> <br>
-		<input type='checkbox' name='class' id = 'class' value=' class='> class=" "<br>
-		<input type='checkbox' name='style' id = 'style' value=' style='> style=" "<br><br>
-		<strong><u> Tags </u></strong> <br>
-		<input type='checkbox' name='span' id='span' value='<span'> &ltspan&gt<br>
-		<input type='checkbox' name='script' id='script' value='<script'> &ltscript&gt<br><br>
-		<strong><u> Replace </u></strong> <br>
-		<input type='checkbox' name='bold' id = 'bold' value='<b'> &ltb&gt with &ltstrong&gt<br>
-		<input type='checkbox' name='italics' id = 'italics' value='<i'> &lti&gt with &ltem&gt<br>
-	</form> <br>
+		<label for="form">Which HTML elements should be removed: </label><br><br>
+		<label for="form">
+		<strong><u> Attributes </u></strong> </label>
+		<br>
+		<input type='checkbox' name='class' id = 'class' value=' class='>
+		<label for="class">class=" "</label>
+		<br>
+		<input type='checkbox' name='style' id = 'style' value=' style='>
+		<label for="style">style=" "</label>
+		<br><br>
+
+		<label for="form"><strong><u> Tags </u></strong></label>
+		<br>
+		<input type='checkbox' name='span' id='span' value='<span'>
+		<label for="span">&ltspan&gt</label>
+		<br>
+		<input type='checkbox' name='script' id='script' value='<script'>
+		<label for="script">&ltscript&gt</label>
+		<br><br>
+
+		<label for="form"><strong><u> Replace </u></strong></label>
+		<br>
+		<input type='checkbox' name='bold' id = 'bold' value='<b'>
+		<label for="bold">&ltb&gt with &ltstrong&gt</label>
+		<br>
+		<input type='checkbox' name='italics' id = 'italics' value='<i'>
+		</label for="italics">&lti&gt with &ltem&gt</label>
+	</form>
+		<br>
+		<br>
 	<span class="checkmark">
     		<div class="checkmark_stem"></div>
     		<div class="checkmark_kick"></div>
@@ -54,7 +73,8 @@
 	<button class="button" onclick='clean()'>Clean Code</button> 
 	<img class="image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iNDgiIGhlaWdodD0iNDgiCnZpZXdCb3g9IjAgMCAxNzIgMTcyIgpzdHlsZT0iIGZpbGw6IzAwMDAwMDsiPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0ibm9uemVybyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1saW5lY2FwPSJidXR0IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1kYXNoYXJyYXk9IiIgc3Ryb2tlLWRhc2hvZmZzZXQ9IjAiIGZvbnQtZmFtaWx5PSJub25lIiBmb250LXdlaWdodD0ibm9uZSIgZm9udC1zaXplPSJub25lIiB0ZXh0LWFuY2hvcj0ibm9uZSIgc3R5bGU9Im1peC1ibGVuZC1tb2RlOiBub3JtYWwiPjxwYXRoIGQ9Ik0wLDE3MnYtMTcyaDE3MnYxNzJ6IiBmaWxsPSJub25lIj48L3BhdGg+PGc+PHBhdGggZD0iTTE1MC41LDE1MC41aC04OS41MjI0MmwtMC4wNjA5MiwtNy4xNjY2N2g4OS41ODMzM3oiIGZpbGw9IiNiZTkwYWYiPjwvcGF0aD48cGF0aCBkPSJNMTEwLjE4MzkyLDExNy4zNTA1OGw0My4wNzUyNSwtNDMuMDcxNjdjMi43OTg1OCwtMi43OTg1OCAyLjc5ODU4LC03LjMzODY3IDAsLTEwLjEzNzI1bC00MC41NDE4MywtNDAuNTQxODNjLTIuNzk4NTgsLTIuNzk4NTggLTcuMzM4NjcsLTIuNzk4NTggLTEwLjEzNzI1LDBsLTQzLjA3NTI1LDQzLjA3MTY3eiIgZmlsbD0iIzVmNDg1NyI+PC9wYXRoPjxwYXRoIGQ9Ik0xNDIuMzU4NjcsODUuMTc5NDJsMTAuOTAwNSwtMTAuOTAwNWMyLjc5ODU4LC0yLjc5ODU4IDIuNzk4NTgsLTcuMzM4NjcgMCwtMTAuMTM3MjVsLTQwLjU0MTgzLC00MC41NDE4M2MtMi43OTg1OCwtMi43OTg1OCAtNy4zMzg2NywtMi43OTg1OCAtMTAuMTM3MjUsMGwtMTAuOTA0MDgsMTAuOTAwNXoiIGZpbGw9IiM1ZjQ4NTciPjwvcGF0aD48cGF0aCBkPSJNNzYuNTY1MDgsMTUwLjVsMzMuNjE4ODMsLTMzLjE0OTQybC01MC42NzkwOCwtNTAuNjc5MDhsLTQzLjA3MTY3LDQzLjA3ODgzYy0yLjc5ODU4LDIuNzk1IC0yLjc5ODU4LDcuMzM1MDggMCwxMC4xMzM2N2wzMC4xNTAxNywzMC42MTZ6IiBmaWxsPSIjYmU5MGFmIj48L3BhdGg+PC9nPjwvZz48L3N2Zz4=">
 	<br><br>
-	Comments are removed. <br>
+	<label for="form">Comments are removed.</label>
+	<br>
 	</p>
     </div>
     <div class="grid-item-ft">
