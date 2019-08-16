@@ -38,3 +38,5 @@ c. Affirmer disclaims responsibility for clearing rights of other persons that m
 d. Affirmer understands and acknowledges that Creative Commons is not a party to this document and has no duty or obligation with respect to this CC0 or use of the Work.
 
 For more information, please see http://creativecommons.org/publicdomain/zero/1.0/
+
+The eraser icon on the page was taken from https://icons8.com and must be attributed.
