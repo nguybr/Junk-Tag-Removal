@@ -92,9 +92,7 @@
 			var deletedRegex = new RegExp(endTag, 'g');
 			newString = newString.replace(deletedRegex, replaceEnd);
 		}
-		return newString;
-
-		
+		return newString;	
 	}
 
 	/*
